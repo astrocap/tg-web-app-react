@@ -4,7 +4,7 @@ function VideoForm() {
   const [textInput1, setTextInput1] = useState('');
   const [textInput2, setTextInput2] = useState('');
   const [selectedLanguages, setSelectedLanguages] = useState([]);
-  //const [imageFile, setImageFile] = useState(null);
+  const [imageFile, setImageFile] = useState(null);
 
   const handleTextInput1Change = (e) => {
     setTextInput1(e.target.value);
@@ -57,6 +57,12 @@ function VideoForm() {
         <label>Upload Image:</label>
         <input type="file" accept="image/*" onChange={handleImageUpload} />
       </div>
+      {/* Отображаем загруженное изображение */}
+      {imageFile && (
+        <div>
+          <img src={URL.createObjectURL(imageFile)} alt="Uploaded" />
+        </div>
+      )}
     </div>
   );
 }
